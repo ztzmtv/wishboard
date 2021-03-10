@@ -10,7 +10,9 @@
             <div class="card-header">{{ product.name }}</div>
             <div class="card-body">
                 <h4 class="card-title">{{ product.name }}</h4>
+                {% if product.image %}
                 <a href="#"><img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+                {% endif %}
                 <p class="card-text">{{ product.description }}</p>
             </div>
         </div>

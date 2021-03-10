@@ -1,5 +1,6 @@
 <!-- Modal -->
 {% load static %}
+{% load crispy_forms_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/img-upload.css'%}">
 <script src="{% static 'js/script.js' %}"></script>
 <div class="modal fade" id="addWishModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -13,16 +14,30 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
+                <form action="add-product" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>{{ form|crispy }}</p>
+
+                    <!--<div class="form-group">
                         <label for="addWishUrl">URL:</label>
                         <input type="text" class="form-control" id="addWishUrl">
                     </div>
                     <div class="form-group">
-                        <label for="addWishName">Название:</label>
+                        {{ form.link.errors }}
+                        <label for="{{ form.link.id_name }}">Link:</label>
+                        {{ form.link }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_name_">Название:</label>
+                        {{ form.name }}
                         <input type="text" class="form-control" id="addWishName">
                     </div>
 
+                    <div class="form-group">
+                        {{ form.name.errors }}
+                        <label for="{{ form.name.id_name }}">Name:</label>
+                        {{ form.name }}
+                    </div>
                     <div class="ml-2 col-sm-6">
                         <div id="msg"></div>
                         <form method="post" id="image-form">
@@ -44,11 +59,13 @@
                         <label for="exampleFormControlTextarea1">Example textarea</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
+
+            </div>-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary">Сохранить</button>
             </div>
         </div>
     </div>
