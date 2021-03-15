@@ -1,0 +1,6 @@
+{
+    "python.venvFolders": [
+        "~/.env"
+    ],
+    "python.pythonPath": "env/bin/python"
+}

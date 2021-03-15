@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Войти
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <h1 class="product_title text-center">
+        Войдите или создайте новый аккаунт
+    </h1>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-lg-6 text-center custom_div">
+            <br>
+            <h2 class="product_title">
+                Новый пользователь
+            </h2>
+            <a href="{% url 'signup' %}" class="btn btn-secondary">Создать нового пользователя</a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12col-lg-6 bg-light">
+            <div>
+                <br>
+                <h2 class="product_title">
+                    Только для зарегистрированых пользователей
+                </h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>{{ login_form|crispy }}</p>
+                    <button type="submit" class="btn btn-secondary">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
