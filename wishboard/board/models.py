@@ -12,6 +12,6 @@ class Product(models.Model):
     is_granted = models.BooleanField(default=False)
     is_public = models.BooleanField(default=True)
     #   далее поля, которые берутся не из формы
-    added_by = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, blank=True)

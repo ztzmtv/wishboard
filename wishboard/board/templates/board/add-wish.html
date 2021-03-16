@@ -3,12 +3,11 @@
 {% load crispy_forms_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/img-upload.css'%}">
 <script src="{% static 'js/script.js' %}"></script>
-<div class="modal fade" id="addWishModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="addWishModal" tabindex="-1" role="dialog" aria-labelledby="addFormLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Желание</h5>
+                <h5 class="modal-title" id="addFormLabel">Желание</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,7 +15,7 @@
             <div class="modal-body">
                 <form action="add-product" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <p>{{ form|crispy }}</p>
+                    <p>{{ add_product_form|crispy }}</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                         <button type="submit" class="btn btn-primary">Сохранить</button>

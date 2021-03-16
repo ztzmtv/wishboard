@@ -24,20 +24,3 @@ class AddProductForm(forms.Form):
     link = forms.URLField(label="URL", required=False)
     is_granted = forms.BooleanField(label="Исполнено", required=False)
     is_public = forms.BooleanField(label="Публичное", required=False)
-
-
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=100, required=True)
-    last_name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(max_length=250, help_text="eg.youremail@email.com")
-
-    class Meta:
-        model = User
-        fields = (
-            "first_name",
-            "last_name",
-            "username",
-            "password1",
-            "password2",
-            "email",
-        )

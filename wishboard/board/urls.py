@@ -6,9 +6,6 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("add-product", views.add_product, name="add-product"),
-    path("account/create/", views.signup_view, name="signup"),
-    path("account/login/", views.login_view, name="login"),
-    #    path('add/<int:product_id>', views.add_product(), name='add_product'),
 ]
 
 urlpatterns += [
