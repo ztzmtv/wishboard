@@ -6,10 +6,11 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("add-product", views.add_product, name="add-product"),
+    path("product/<int:pk>", views.show_product, name="product-details"),
 ]
 
 urlpatterns += [
-    re_path(r"^wish/(?P<pk>[-\w]+)/renew/$", views.add_product, name="renew-wish"),
+    #    re_path(r"^product/<int:pk>", views.show_product, name="product-details"),
 ]
 
 

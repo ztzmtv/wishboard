@@ -16,6 +16,11 @@ def home(request):
     )
 
 
+def show_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "board/product.html", {"product": product})
+
+
 def add_product(request):
     if request.method == "POST":
         add_product_form = AddProductForm(request.POST, request.FILES)
@@ -30,6 +35,7 @@ def add_product(request):
                 is_public=add_product_form.cleaned_data["is_public"],
                 added_by=request.user,
                 created=datetime.now(),
+
                 updated=datetime.now(),
             )
             product.save()
