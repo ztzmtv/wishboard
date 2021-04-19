@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container p-4">
+    <a href="{% url 'home' %}"><- Назад</a>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col">
+                <div>
+                    {% if product.image %}
+                    <a href="{% url 'product-details' product.id %}">
+                        <img src="{{ product.image.url }}"
+                             width="300px"
+                             alt="{{ product.name }}"
+                        ></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+
+                <h1 class="display-3">{{ product.name }}</h1>
+                <p class="lead">{{ product.description }}</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger
+                    container.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+{{ product.price }}
+<br>
+{{ product.link }}
+<br>
+{{ product.is_granted }}
+<br>
+{{ product.is_public }}
+<br>
+{{ product.added_by }}
+<br>
+{{ product.created }}
+<br>
+{{ product.updated }}
+
+{% endblock %}
